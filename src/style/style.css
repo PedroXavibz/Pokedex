@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
 /* Reset */
 *,
@@ -21,7 +21,7 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Anchors */
@@ -83,8 +83,7 @@ ul {
 .logo-highlights {
   padding: 0rem 0.8rem;
 
-  text-shadow: -0.1rem 0 #000000, 0 0.1rem #000000, 0.1rem 0 #000000,
-    0 -0.1rem #000000;
+  text-shadow: -0.1rem 0 #000000, 0 0.1rem #000000, 0.1rem 0 #000000, 0 -0.1rem #000000;
   background-image: var(--primary-gradient);
 
   transform: skew(8deg);
@@ -106,8 +105,7 @@ ul {
   padding: 0rem 1.2rem;
 
   color: #ffffff;
-  text-shadow: -0.1rem 0 #000000, 0 0.1rem #000000, 0.1rem 0 #000000,
-    0 -0.1rem #000000;
+  text-shadow: -0.1rem 0 #000000, 0 0.1rem #000000, 0.1rem 0 #000000, 0 -0.1rem #000000;
 
   letter-spacing: 0.2rem;
   font-size: 1.9rem;
@@ -201,6 +199,10 @@ ul {
   width: 100%;
   height: 65%;
   object-fit: cover;
+}
+
+.card-pokemon--img img.lazy-img {
+  filter: blur(0.12rem);
 }
 
 .card-pokemon--description {
@@ -344,8 +346,7 @@ ul {
 .container__type span {
   padding: 0.9rem;
   color: #ffffff;
-  text-shadow: -0.1rem 0 #000000, 0 0.1rem #000000, 0.1rem 0 #000000,
-    0 -0.1rem #000000;
+  text-shadow: -0.1rem 0 #000000, 0 0.1rem #000000, 0.1rem 0 #000000, 0 -0.1rem #000000;
 }
 
 .container__info {
@@ -486,6 +487,7 @@ ul {
 }
 
 .hidden {
+  opacity: 0;
   transform: scale(0);
 }
 
@@ -495,6 +497,7 @@ ul {
   height: 5rem;
 
   border-radius: 50%;
+  animation: rotate 1s infinite linear;
 }
 
 .loader-image {
@@ -510,10 +513,6 @@ ul {
   margin-bottom: 1.8rem;
   border: 0.4rem solid var(--secondary-color);
   border-left: 0.3rem solid var(--primary-color);
-}
-
-.loader.active {
-  animation: rotate 1s infinite linear;
 }
 
 @keyframes rotate {
@@ -600,7 +599,7 @@ ul {
 
 .pokemon-type--flying::before,
 .pokemon-type--dragon::before {
-  content: "";
+  content: '';
 
   position: absolute;
   top: 0;
@@ -615,7 +614,7 @@ ul {
 
 .pokemon-type--flying::after,
 .pokemon-type--dragon::after {
-  content: "";
+  content: '';
 
   position: absolute;
   bottom: 0;
