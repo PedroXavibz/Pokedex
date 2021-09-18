@@ -5,18 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokedex - Pokemon</title>
-    <link
-      rel="shortcut icon"
-      href="./src/img/favicon.ico"
-      type="image/x-icon"
-    />
+    <link rel="shortcut icon" href="./src/img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./src/style/style.css" />
     <script
       defer
       src="https://kit.fontawesome.com/dcf3890342.js"
       crossorigin="anonymous"
     ></script>
-    <!-- <script defer src="./src/js/controller.js"></script> -->
+    <script defer src="./src/js/controller.js"></script>
   </head>
   <body>
     <main id="app">
@@ -44,31 +40,9 @@
       </header>
 
       <section class="pokemons">
-        <ul class="container__pokemons">
-          <li class="card-pokemon">
-            <a href="#1">
-              <figure class="card-pokemon--img">
-                <img
-                  class="lazy-img"
-                  src="./src/img/lazy-img.png"
-                  alt="pokemon image"
-                  data-src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
-                />
-                <figcaption class="card-pokemon--description">
-                  <h2 class="pokemon-name">??</h2>
-                  <h3 class="pokemon-id">??</h3>
-                  <div class="container__type">
-                    <span class="pokemon-type pokemon-type--grass">??</span>
-                    <span class="pokemon-type pokemon-type--poison">??</span>
-                  </div>
-                </figcaption>
-                <div class="loader loader-image active"></div>
-              </figure>
-            </a>
-          </li>
-        </ul>
+        <ul class="container__pokemons"></ul>
         <div class="spinner">
-          <div class="loader loader-fetch active"></div>
+          <div class="loader loader-fetch hidden"></div>
         </div>
       </section>
 
