@@ -1,0 +1,23 @@
+{
+  "name": "pokedex",
+  "version": "1.0.0",
+  "description": "Consuming a pokeapi and building a pokedex 😎",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javascript",
+    "MVC",
+    "OOP",
+    "pokedex",
+    "API"
+  ],
+  "author": "Pedro Xavier",
+  "license": "ISC",
+  "devDependencies": {
+    "core-js": "^3.17.3",
+    "parcel-bundler": "^1.12.5",
+    "regenerator-runtime": "^0.13.9"
+  }
+}
