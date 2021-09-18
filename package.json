@@ -2,9 +2,10 @@
   "name": "pokedex",
   "version": "1.0.0",
   "description": "Consuming a pokeapi and building a pokedex 😎",
-  "main": "index.html",
+  "default": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel index.html",
+    "build": "parcel build index.html --out-dir ./dist"
   },
   "keywords": [
     "javascript",
