@@ -63,7 +63,7 @@ class PokemonsView {
   }
 
   /**
-   * This function is called when the page is loaded.
+   * This method is called when the page is loaded.
    * @param {function} handler Function that fetch data from API
    */
   addHandlerLoad(handler) {
@@ -71,7 +71,7 @@ class PokemonsView {
   }
 
   /**
-   * This function will be called every time there is an intersection in the loader spinner element
+   * This method will execute the function passed as argument every time there is an intersection in the loader element.
    * @param {function} handler Function that fetch data pokemon
    */
   addHandlerFetchPokemons(handler) {
