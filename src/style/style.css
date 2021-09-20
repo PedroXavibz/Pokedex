@@ -93,10 +93,10 @@ ul {
   max-width: 35rem;
   height: 4.3rem;
 
+  position: relative;
+
   display: flex;
   align-items: center;
-
-  overflow: hidden;
 }
 
 .form-header input {
@@ -144,6 +144,39 @@ ul {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.list-names {
+  width: 90%;
+  height: 30rem;
+
+  position: absolute;
+  top: 100%;
+
+  overflow-y: auto;
+
+  background: var(--primary-color);
+
+  z-index: -1;
+  opacity: 0;
+}
+
+.item-name a {
+  display: block;
+  cursor: pointer;
+
+  width: 100%;
+  padding: 0.4rem;
+  z-index: 10;
+
+  text-transform: capitalize;
+  font-size: calc(1.4rem + 0.05vw);
+  color: var(--quaternary-color);
+}
+
+.item-name:hover,
+.item-name:active {
+  background: var(--secondary-color);
 }
 
 /* Pokemons */
