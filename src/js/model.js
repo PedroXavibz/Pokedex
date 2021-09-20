@@ -1,9 +1,10 @@
 import { getJSON } from './helpers';
-import { API_URL } from './config';
+import { API_URL, MAXIMUM_OFFSET } from './config';
 
 export const state = {
   pokemons: [],
   pokemon: {},
+  allNamesPokemons: [],
   search: {
     limit: 20,
     offset: 0,
@@ -50,25 +51,41 @@ export const loadPokemons = async function (offset = state.search.offset) {
  * @param {string} url A url pokemon
  */
 export const loadPokemon = async function (query = '', url) {
-  // 1 - Get data
-  const objPokemon = query ? await getJSON(`${API_URL}${query}`) : await getJSON(url);
+  try {
+    // 1 - Get data
+    const objPokemon = query ? await getJSON(`${API_URL}${query}`) : await getJSON(url);
 
-  state.search.query = query;
+    state.search.query = query;
 
-  // 2 - Data storage in pokemon object state
-  state.pokemon = {
-    name: objPokemon.name,
-    id: objPokemon.id,
-    height: objPokemon.height,
-    weight: objPokemon.weight,
-    image: objPokemon.sprites.other['official-artwork'].front_default,
-    ability: objPokemon.abilities[0].ability.name,
-    stats: objPokemon.stats.map(s => {
-      return {
-        base: s.base_stat,
-        name: s.stat.name,
-      };
-    }),
-    types: objPokemon.types.map(t => t.type.name),
-  };
+    // 2 - Data storage in pokemon object state
+    state.pokemon = {
+      name: objPokemon.name,
+      id: objPokemon.id,
+      height: objPokemon.height,
+      weight: objPokemon.weight,
+      image: objPokemon.sprites.other['official-artwork'].front_default,
+      ability: objPokemon.abilities[0].ability.name,
+      stats: objPokemon.stats.map(s => {
+        return {
+          base: s.base_stat,
+          name: s.stat.name,
+        };
+      }),
+      types: objPokemon.types.map(t => t.type.name),
+    };
+  } catch (err) {
+    throw err;
+  }
 };
+
+(async function () {
+  try {
+    // 1 - Get all pokemons names
+    const data = await getJSON(`${API_URL}?limit=${MAXIMUM_OFFSET}&offset=0`);
+
+    // 2 - Data storage in allPokemonsName state
+    state.allNamesPokemons = data.results.map(el => el.name);
+  } catch (err) {
+    console.error(err);
+  }
+})();

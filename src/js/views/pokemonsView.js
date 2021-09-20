@@ -1,5 +1,5 @@
-import { API_URL, OFFSET } from '../config';
 import View from './View';
+import { API_URL, OFFSET } from '../config';
 
 class PokemonsView extends View {
   _parentElement = document.querySelector('.container__pokemons');

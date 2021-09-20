@@ -1,5 +1,5 @@
 export default class View {
-  _parentElement = document.querySelector('.modal');
+  _parentElement;
   _data;
 
   /**

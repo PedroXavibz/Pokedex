@@ -1,3 +1,5 @@
+import img from '../../img/error-img.jfif';
+
 class ModalView {
   _parentElement = document.querySelector('.modal');
   _ovelay = document.querySelector('.overlay');
@@ -10,6 +12,7 @@ class ModalView {
     this._clear();
     const markup = this._generateMarkupError(message);
     this._parentElement.insertAdjacentHTML('beforeend', markup);
+    this.addHandlerModal();
   }
 
   _clear() {
@@ -23,18 +26,18 @@ class ModalView {
    */
   _generateMarkupError(message) {
     return `
-            <div class="error-message">
-              <figure>
-                <img src="./src/img/error-img.jfif" alt="pikachu image" />
-                <figcaption>
-                  <i class="fas fa-exclamation-triangle"></i>
-                  <h1>Something went wrong 😶</h1>
-                  <p class="message">💥 ${message} 💥</p>
-                  <button class="btn close--modal btn-close-err">Try again 🔄</button>
-                </figcaption>
-              </figure>
-            </div>
-        `;
+    <div class="error-message">
+      <figure>
+        <img src="${img}" alt="pikachu image" />
+        <figcaption>
+          <i class="fas fa-exclamation-triangle"></i>
+          <h1>Something went wrong 😶</h1>
+          <p class="message">💥 ${message} 💥</p>
+          <button class="btn close--modal btn-close-err">Try again 🔄</button>
+        </figcaption>
+      </figure>
+    </div>
+    `;
   }
 
   toggleClassModal() {
