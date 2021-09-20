@@ -3,9 +3,11 @@ import { API_URL } from './config';
 
 export const state = {
   pokemons: [],
+  pokemon: {},
   search: {
     limit: 20,
     offset: 0,
+    query: '',
   },
 };
 
@@ -40,4 +42,33 @@ export const loadPokemons = async function (offset = state.search.offset) {
   } catch (err) {
     throw err;
   }
+};
+
+/**
+ * This function get data from a specific pokemon either based a url or name.
+ * @param {string | undefined} query A pokemon name or id, this parameter should be undefined if your search is done via a url
+ * @param {string} url A url pokemon
+ */
+export const loadPokemon = async function (query = '', url) {
+  // 1 - Get data
+  const objPokemon = query ? await getJSON(`${API_URL}${query}`) : await getJSON(url);
+
+  state.search.query = query;
+
+  // 2 - Data storage in pokemon object state
+  state.pokemon = {
+    name: objPokemon.name,
+    id: objPokemon.id,
+    height: objPokemon.height,
+    weight: objPokemon.weight,
+    image: objPokemon.sprites.other['official-artwork'].front_default,
+    ability: objPokemon.abilities[0].ability.name,
+    stats: objPokemon.stats.map(s => {
+      return {
+        base: s.base_stat,
+        name: s.stat.name,
+      };
+    }),
+    types: objPokemon.types.map(t => t.type.name),
+  };
 };

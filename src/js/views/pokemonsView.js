@@ -1,22 +1,12 @@
 import { API_URL, OFFSET } from '../config';
+import View from './View';
 
-class PokemonsView {
+class PokemonsView extends View {
   _parentElement = document.querySelector('.container__pokemons');
   _spinner = this._parentElement.closest('.pokemons').querySelector('.loader-fetch');
-  _data;
 
   /**
-   * Render the recived object to the DOM
-   * @param {Object[]} data The data to be rendered (e.g. pokemons)
-   */
-  render(data) {
-    this._data = data;
-    const markup = this._generateMarkup();
-    this._parentElement.insertAdjacentHTML('beforeend', markup);
-  }
-
-  /**
-   * generate a markup card
+   * Generating a markup card
    * @returns {string} Return an HTML string, this string will be rendered in the DOM
    */
   _generateMarkup() {
@@ -32,7 +22,7 @@ class PokemonsView {
                 />
                 <figcaption class="card-pokemon--description">
                   <h2 class="pokemon-name">${data.name}</h2>
-                  <h3 class="pokemon-id">${String(data.id).padStart(3, 0)}</h3>
+                  <h3 class="pokemon-id">ID ${String(data.id).padStart(3, 0)}</h3>
                   <div class="container__type">
                     ${data.types.map(this._generateMarkupTypePokemon).join('')}
                   </div>
@@ -43,15 +33,6 @@ class PokemonsView {
         `;
       })
       .join('');
-  }
-
-  /**
-   *
-   * @param {string} type Name of the pokemon type
-   * @returns {string} Return an HTML string
-   */
-  _generateMarkupTypePokemon(type) {
-    return `<span class="pokemon-type pokemon-type--${type}">${type}</span>`;
   }
 
   showSpinner() {
@@ -93,7 +74,26 @@ class PokemonsView {
     observerContainerPokemons.observe(this._spinner);
   }
 
-  addHandlerClick() {}
+  /**
+   * This method allows you to fetch a Pokémon by clicking on its card.
+   * @param {function} handler Function that fetch data pokemon
+   */
+  addHandlerClick(handler) {
+    // Get pokemon url on click
+    this._parentElement.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      // Get anchor element
+      const anchorEl = e.target.closest('a');
+
+      if (!anchorEl) return;
+
+      const url = anchorEl.href;
+
+      // Get data
+      handler(undefined, url);
+    });
+  }
 }
 
 export default new PokemonsView();
