@@ -41,7 +41,7 @@ const controlerPokemon = async function (query, url) {
   // 2 - Render pokemon
   pokemonView.render(model.state.pokemon);
 
-  // 3 - Add handler close modal
+  // 3 - Add handler modal
   modalView.addHandlerModal();
   pokemonView.addHandlerTabbed();
 };
