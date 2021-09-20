@@ -147,6 +147,7 @@ ul {
 }
 
 .list-names {
+  display: none;
   width: 90%;
   height: 30rem;
 
@@ -156,9 +157,6 @@ ul {
   overflow-y: auto;
 
   background: var(--primary-color);
-
-  z-index: -1;
-  opacity: 0;
 }
 
 .item-name a {
@@ -320,7 +318,8 @@ ul {
 }
 
 .left figure {
-  max-width: 50rem;
+  width: 100%;
+  min-width: 30rem;
   max-height: 30rem;
 
   display: flex;
