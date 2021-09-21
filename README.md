@@ -1,4 +1,4 @@
-### My own pokedex: https://my-own-pokedex.netlify.app
+## My own pokedex: https://my-own-pokedex.netlify.app
 <img src='http://i.imgur.com/1jBybmE.png'>
 
 <h3>The purpose of this project is to practice OOP in javascript, MVC, and API fetching.</h3>
@@ -11,6 +11,10 @@
   <li>Asynchronous API (async/await)</>
 </ul>
   
-
-### To deploy 👨‍💻:
+  ##
+  <div align="center">
+    <img  src="https://user-images.githubusercontent.com/80354012/134115679-8c8e4cd5-b68e-4eb4-b864-4756d251b783.gif" />
+  </div>
+  
+## To deploy 👨‍💻:
 npm run start
