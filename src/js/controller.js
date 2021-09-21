@@ -75,6 +75,8 @@ const controlerSearchNames = function (name) {
     pokemonName.includes(name)
   );
 
+  if (!results.length) return;
+
   // Render names in the DOM and show list name
   searchView.render(results);
   searchView.showNames();
